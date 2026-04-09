@@ -89,7 +89,7 @@ const NewsPanel = ({ selectedStock }) => {
             news.overall_sentiment === 'negative' ? 'bg-accent-red bg-opacity-20 text-accent-red' :
             'bg-gray-600 bg-opacity-20 text-gray-400'
           }`}>
-            {news.overall_sentiment.toUpperCase()}
+            {news.overall_sentiment?.toUpperCase() || 'N/A'}
           </div>
         </div>
       </div>

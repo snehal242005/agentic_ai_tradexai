@@ -103,7 +103,7 @@ const PricePrediction = () => {
                   isUpward ? 'bg-accent-green bg-opacity-20 text-accent-green' : 'bg-accent-red bg-opacity-20 text-accent-red'
                 }`}>
                   {isUpward ? <TrendingUp className="w-5 h-5" /> : <TrendingDown className="w-5 h-5" />}
-                  <span className="font-semibold">{prediction.trend.toUpperCase()} TREND</span>
+                  <span className="font-semibold">{prediction.trend?.toUpperCase() || 'N/A'} TREND</span>
                 </div>
               </div>
 
