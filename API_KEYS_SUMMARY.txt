@@ -1,0 +1,95 @@
+╔══════════════════════════════════════════════════════════════════════════════╗
+║                     🔑 TradeXAI - API Keys Required                          ║
+╚══════════════════════════════════════════════════════════════════════════════╝
+
+┌──────────────────────────────────────────────────────────────────────────────┐
+│ 1. OPENAI API KEY                                                            │
+├──────────────────────────────────────────────────────────────────────────────┤
+│ Purpose:  Powers the AI Assistant chatbot                                    │
+│ Get it:   https://platform.openai.com/api-keys                              │
+│ Cost:     ~$2-5 for testing (pay-as-you-go)                                 │
+│ Format:   sk-proj-abc123...                                                  │
+│ Required: ✅ YES (for AI chat feature)                                       │
+└──────────────────────────────────────────────────────────────────────────────┘
+
+┌──────────────────────────────────────────────────────────────────────────────┐
+│ 2. NEWSAPI KEY                                                               │
+├──────────────────────────────────────────────────────────────────────────────┤
+│ Purpose:  Fetches real-time financial news                                   │
+│ Get it:   https://newsapi.org/register                                       │
+│ Cost:     FREE (100 requests/day)                                            │
+│ Format:   a1b2c3d4e5f6...                                                    │
+│ Required: ✅ YES (for news sentiment feature)                                │
+└──────────────────────────────────────────────────────────────────────────────┘
+
+┌──────────────────────────────────────────────────────────────────────────────┐
+│ 3. YAHOO FINANCE                                                             │
+├──────────────────────────────────────────────────────────────────────────────┤
+│ Purpose:  Stock data, prices, predictions                                    │
+│ Get it:   Built-in (no key needed)                                          │
+│ Cost:     FREE                                                               │
+│ Required: ✅ Already included                                                │
+└──────────────────────────────────────────────────────────────────────────────┘
+
+╔══════════════════════════════════════════════════════════════════════════════╗
+║                          📝 How to Add Keys                                  ║
+╚══════════════════════════════════════════════════════════════════════════════╝
+
+1. Open file: backend/.env
+
+2. Replace placeholders:
+   OPENAI_API_KEY=sk-your-actual-key-here
+   NEWS_API_KEY=your-actual-key-here
+
+3. Save file
+
+4. Restart backend server
+
+╔══════════════════════════════════════════════════════════════════════════════╗
+║                      💰 Total Cost for Testing                               ║
+╚══════════════════════════════════════════════════════════════════════════════╝
+
+OpenAI:        $2-5/month
+NewsAPI:       $0 (free tier)
+Yahoo Finance: $0 (free)
+─────────────────────────────
+TOTAL:         ~$2-5/month
+
+Very affordable for development and demo! 🎉
+
+╔══════════════════════════════════════════════════════════════════════════════╗
+║                    ✅ What Works Without Keys                                ║
+╚══════════════════════════════════════════════════════════════════════════════╝
+
+✅ Stock Analysis (real-time prices)
+✅ Price Predictions (ML models)
+✅ Portfolio Creator (AI optimization)
+✅ Technical Indicators
+✅ All Charts & Visualizations
+✅ Dashboard
+
+❌ AI Assistant Chat (needs OpenAI)
+❌ News Articles (needs NewsAPI)
+
+╔══════════════════════════════════════════════════════════════════════════════╗
+║                         🚀 Quick Start                                       ║
+╚══════════════════════════════════════════════════════════════════════════════╝
+
+Step 1: Get keys (5 min)
+Step 2: Add to backend/.env (1 min)
+Step 3: Restart backend (1 min)
+Step 4: Test at http://localhost:3000
+
+Total time: ~7 minutes to full functionality!
+
+╔══════════════════════════════════════════════════════════════════════════════╗
+║                      📚 Detailed Guides Available                            ║
+╚══════════════════════════════════════════════════════════════════════════════╝
+
+• API_KEYS_SETUP.md           - Comprehensive guide
+• API_KEYS_QUICK_REFERENCE.md - Quick copy-paste template
+• COMPLETE_SETUP_GUIDE.md     - Full setup walkthrough
+
+═══════════════════════════════════════════════════════════════════════════════
+
+Ready to provide your API keys? Just paste them in backend/.env and you're done!

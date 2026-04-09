@@ -1,0 +1,241 @@
+{
+  "default_user": {
+    "user_id": "default_user",
+    "total_value": 1000.0,
+    "invested_amount": 1000.0,
+    "current_value": 1000.0,
+    "total_profit_loss": 0,
+    "total_profit_loss_percent": 0,
+    "risk_level": "medium",
+    "holdings": [
+      {
+        "symbol": "AAPL",
+        "allocation_percent": 25.0,
+        "amount": 250.0,
+        "shares": 0,
+        "current_value": 250.0,
+        "profit_loss": 0,
+        "profit_loss_percent": 0
+      },
+      {
+        "symbol": "MSFT",
+        "allocation_percent": 25.0,
+        "amount": 250.0,
+        "shares": 0,
+        "current_value": 250.0,
+        "profit_loss": 0,
+        "profit_loss_percent": 0
+      },
+      {
+        "symbol": "GOOGL",
+        "allocation_percent": 20.0,
+        "amount": 200.0,
+        "shares": 0,
+        "current_value": 200.0,
+        "profit_loss": 0,
+        "profit_loss_percent": 0
+      },
+      {
+        "symbol": "TCS",
+        "allocation_percent": 15.0,
+        "amount": 150.0,
+        "shares": 0,
+        "current_value": 150.0,
+        "profit_loss": 0,
+        "profit_loss_percent": 0
+      },
+      {
+        "symbol": "AMZN",
+        "allocation_percent": 15.0,
+        "amount": 150.0,
+        "shares": 0,
+        "current_value": 150.0,
+        "profit_loss": 0,
+        "profit_loss_percent": 0
+      }
+    ],
+    "performance_history": [
+      {
+        "date": "2026-03-10",
+        "value": 1002.27,
+        "profit_loss": 2.27,
+        "profit_loss_percent": 0.23
+      },
+      {
+        "date": "2026-03-11",
+        "value": 1026.84,
+        "profit_loss": 26.84,
+        "profit_loss_percent": 2.68
+      },
+      {
+        "date": "2026-03-12",
+        "value": 1035.72,
+        "profit_loss": 35.72,
+        "profit_loss_percent": 3.57
+      },
+      {
+        "date": "2026-03-13",
+        "value": 1041.68,
+        "profit_loss": 41.68,
+        "profit_loss_percent": 4.17
+      },
+      {
+        "date": "2026-03-14",
+        "value": 1031.83,
+        "profit_loss": 31.83,
+        "profit_loss_percent": 3.18
+      },
+      {
+        "date": "2026-03-15",
+        "value": 1029.92,
+        "profit_loss": 29.92,
+        "profit_loss_percent": 2.99
+      },
+      {
+        "date": "2026-03-16",
+        "value": 1036.14,
+        "profit_loss": 36.14,
+        "profit_loss_percent": 3.61
+      },
+      {
+        "date": "2026-03-17",
+        "value": 1049.96,
+        "profit_loss": 49.96,
+        "profit_loss_percent": 5.0
+      },
+      {
+        "date": "2026-03-18",
+        "value": 1047.73,
+        "profit_loss": 47.73,
+        "profit_loss_percent": 4.77
+      },
+      {
+        "date": "2026-03-19",
+        "value": 1069.93,
+        "profit_loss": 69.93,
+        "profit_loss_percent": 6.99
+      },
+      {
+        "date": "2026-03-20",
+        "value": 1056.21,
+        "profit_loss": 56.21,
+        "profit_loss_percent": 5.62
+      },
+      {
+        "date": "2026-03-21",
+        "value": 1074.06,
+        "profit_loss": 74.06,
+        "profit_loss_percent": 7.41
+      },
+      {
+        "date": "2026-03-22",
+        "value": 1059.75,
+        "profit_loss": 59.75,
+        "profit_loss_percent": 5.98
+      },
+      {
+        "date": "2026-03-23",
+        "value": 1088.51,
+        "profit_loss": 88.51,
+        "profit_loss_percent": 8.85
+      },
+      {
+        "date": "2026-03-24",
+        "value": 1119.24,
+        "profit_loss": 119.24,
+        "profit_loss_percent": 11.92
+      },
+      {
+        "date": "2026-03-25",
+        "value": 1108.12,
+        "profit_loss": 108.12,
+        "profit_loss_percent": 10.81
+      },
+      {
+        "date": "2026-03-26",
+        "value": 1131.75,
+        "profit_loss": 131.75,
+        "profit_loss_percent": 13.18
+      },
+      {
+        "date": "2026-03-27",
+        "value": 1156.65,
+        "profit_loss": 156.65,
+        "profit_loss_percent": 15.67
+      },
+      {
+        "date": "2026-03-28",
+        "value": 1155.76,
+        "profit_loss": 155.76,
+        "profit_loss_percent": 15.58
+      },
+      {
+        "date": "2026-03-29",
+        "value": 1177.55,
+        "profit_loss": 177.55,
+        "profit_loss_percent": 17.75
+      },
+      {
+        "date": "2026-03-30",
+        "value": 1208.54,
+        "profit_loss": 208.54,
+        "profit_loss_percent": 20.85
+      },
+      {
+        "date": "2026-03-31",
+        "value": 1230.99,
+        "profit_loss": 230.99,
+        "profit_loss_percent": 23.1
+      },
+      {
+        "date": "2026-04-01",
+        "value": 1222.24,
+        "profit_loss": 222.24,
+        "profit_loss_percent": 22.22
+      },
+      {
+        "date": "2026-04-02",
+        "value": 1258.02,
+        "profit_loss": 258.02,
+        "profit_loss_percent": 25.8
+      },
+      {
+        "date": "2026-04-03",
+        "value": 1291.98,
+        "profit_loss": 291.98,
+        "profit_loss_percent": 29.2
+      },
+      {
+        "date": "2026-04-04",
+        "value": 1278.55,
+        "profit_loss": 278.55,
+        "profit_loss_percent": 27.85
+      },
+      {
+        "date": "2026-04-05",
+        "value": 1278.74,
+        "profit_loss": 278.74,
+        "profit_loss_percent": 27.87
+      },
+      {
+        "date": "2026-04-06",
+        "value": 1271.67,
+        "profit_loss": 271.67,
+        "profit_loss_percent": 27.17
+      },
+      {
+        "date": "2026-04-07",
+        "value": 1249.86,
+        "profit_loss": 249.86,
+        "profit_loss_percent": 24.99
+      },
+      {
+        "date": "2026-04-08",
+        "value": 1279.95,
+        "profit_loss": 279.95,
+        "profit_loss_percent": 28.0
+      }
+    ],
+    "created_at": "2026-04-09T10:00:00Z"
+  }
+}
