@@ -2,7 +2,6 @@ services:
   - type: web
     name: tradexai
     runtime: python
-    pythonVersion: "3.11.9"
     buildCommand: pip install -r backend/requirements.txt && cd frontend && npm install && npm run build
     startCommand: cd backend && python run.py
     envVars:
