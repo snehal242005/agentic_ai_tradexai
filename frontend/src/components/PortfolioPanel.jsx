@@ -212,7 +212,7 @@ const PortfolioPanel = () => {
               portfolio.risk_level === 'high' ? 'bg-accent-red text-white' :
               'bg-accent-yellow text-white'
             }`}>
-              {portfolio.risk_level?.toUpperCase() || 'N/A'}
+              {portfolio.risk_level.toUpperCase()}
             </span>
           </div>
         </div>

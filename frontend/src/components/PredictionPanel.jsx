@@ -76,7 +76,7 @@ const PredictionPanel = ({ selectedStock }) => {
             isUpward ? 'bg-accent-green bg-opacity-20 text-accent-green' : 'bg-accent-red bg-opacity-20 text-accent-red'
           }`}>
             <TrendingUp className={`w-4 h-4 ${!isUpward && 'rotate-180'}`} />
-            <span className="text-sm font-semibold">{prediction.trend?.toUpperCase() || 'N/A'}</span>
+            <span className="text-sm font-semibold">{prediction.trend.toUpperCase()}</span>
           </div>
         </div>
       </div>
@@ -140,7 +140,7 @@ const PredictionPanel = ({ selectedStock }) => {
           </div>
           <div className="bg-dark-hover rounded-lg p-3">
             <p className="text-xs text-gray-400 mb-1">Confidence</p>
-            <p className="text-lg font-semibold">{prediction.metrics?.confidence?.toUpperCase() || 'N/A'}</p>
+            <p className="text-lg font-semibold">{prediction.metrics.confidence.toUpperCase()}</p>
           </div>
         </div>
 

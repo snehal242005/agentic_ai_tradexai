@@ -1,20 +1,18 @@
 from fastapi import FastAPI, HTTPException
 from fastapi.middleware.cors import CORSMiddleware
-from fastapi.responses import JSONResponse, FileResponse
-from fastapi.staticfiles import StaticFiles
+from fastapi.responses import JSONResponse
 from pydantic import BaseModel
 from typing import List, Optional
 import uvicorn
 import json
 import math
-import os
-from pathlib import Path
 from agents.orchestrator import AgentOrchestrator
 from services.stock_service import StockService
 from services.news_service import NewsService
 from services.prediction_service import PredictionService
 from services.portfolio_service import PortfolioService
 from database.db import Database
+import os
 
 class NaNSafeEncoder(json.JSONEncoder):
     def encode(self, obj):
@@ -36,10 +34,10 @@ class NaNSafeResponse(JSONResponse):
 
 app = FastAPI(title="AI Financial Copilot API", default_response_class=NaNSafeResponse)
 
-# CORS — allow all origins (single-host, no cross-origin needed in prod)
+# CORS middleware
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["*"],
+    allow_origins=["http://localhost:3000", "http://localhost:5173"],
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
@@ -67,31 +65,9 @@ class StockRequest(BaseModel):
     symbol: str
     period: Optional[str] = "1mo"
 
-@app.get("/api/health")
-async def health():
+@app.get("/")
+async def root():
     return {"message": "AI Financial Copilot API", "status": "running"}
-
-# ----- Serve React frontend (must be AFTER all /api routes) -----
-FRONTEND_DIST = Path(__file__).parent.parent / "frontend" / "dist"
-
-if FRONTEND_DIST.exists():
-    app.mount("/assets", StaticFiles(directory=FRONTEND_DIST / "assets"), name="assets")
-
-    @app.get("/")
-    async def serve_index():
-        return FileResponse(FRONTEND_DIST / "index.html")
-
-    @app.get("/{full_path:path}")
-    async def serve_spa(full_path: str):
-        """Catch-all: serve index.html for React Router routes"""
-        file_path = FRONTEND_DIST / full_path
-        if file_path.exists() and file_path.is_file():
-            return FileResponse(file_path)
-        return FileResponse(FRONTEND_DIST / "index.html")
-else:
-    @app.get("/")
-    async def root():
-        return {"message": "AI Financial Copilot API", "status": "running", "note": "Frontend not built yet"}
 
 @app.post("/api/chat")
 async def chat(request: ChatRequest):

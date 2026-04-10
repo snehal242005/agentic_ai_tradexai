@@ -431,13 +431,23 @@ class DecisionAgent:
                 "data": results
             }
 
+        # Smart fallback — answer common finance questions without AI
+        msg = message.lower()
+        if any(w in msg for w in ["what is stock", "what are stocks", "define stock"]):
+            answer = "A **stock** (also called a share or equity) represents ownership in a company. When you buy a stock, you own a small piece of that company and can profit if its value rises. Stocks are traded on exchanges like NYSE, NASDAQ, and BSE."
+        elif any(w in msg for w in ["what is portfolio", "what is a portfolio"]):
+            answer = "A **portfolio** is a collection of investments (stocks, bonds, ETFs, etc.) held by an investor. A diversified portfolio spreads risk across different assets so a loss in one doesn't wipe out your entire investment."
+        elif any(w in msg for w in ["what is dividend", "what are dividends"]):
+            answer = "A **dividend** is a portion of a company's earnings paid out to shareholders, usually quarterly. It's a way companies reward investors. Dividend yield = annual dividend / stock price × 100%."
+        elif any(w in msg for w in ["what is pe", "p/e ratio", "price to earnings"]):
+            answer = "The **P/E ratio** (Price-to-Earnings) measures how much investors pay per dollar of earnings. A high P/E means investors expect high future growth. A low P/E may indicate undervaluation or slow growth."
+        elif any(w in msg for w in ["hello", "hi ", "hey", "greet"]):
+            answer = "Hello! I'm your AI Financial Copilot. Ask me to analyze a stock (e.g., 'Analyze AAPL'), predict prices (e.g., 'Predict TSLA'), check news sentiment, or build a portfolio."
+        else:
+            answer = f"I understand you're asking about: **{message}**\n\nFor best results, try asking me:\n- 'Analyze AAPL' — stock analysis & recommendation\n- 'Predict TSLA price' — 7-day price forecast\n- 'News about GOOGL' — sentiment analysis\n- 'Create portfolio with $10000' — portfolio builder"
+
         return {
-            "response": "Hello! I'm your AI Financial Copilot. I can help you with:\n\n"
-                       "- Stock Analysis: Ask me about any stock (e.g., 'Analyze AAPL')\n"
-                       "- Price Predictions: Get 7-day forecasts (e.g., 'Predict TSLA price')\n"
-                       "- News Sentiment: Latest news analysis (e.g., 'News about GOOGL')\n"
-                       "- Portfolio Creation: Build optimized portfolios (e.g., 'Create portfolio with $10000')\n\n"
-                       "What would you like to know?",
+            "response": answer,
             "intent": "general_query",
             "data": results
         }

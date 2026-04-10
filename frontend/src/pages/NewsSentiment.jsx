@@ -115,7 +115,7 @@ const NewsSentiment = () => {
                   news.overall_sentiment === 'negative' ? 'bg-accent-red text-white' :
                   'bg-gray-600 text-white'
                 }`}>
-                  {news.overall_sentiment?.toUpperCase() || 'N/A'}
+                  {news.overall_sentiment.toUpperCase()}
                 </div>
               </div>
 
@@ -201,7 +201,7 @@ const NewsSentiment = () => {
                       <div className="flex items-center space-x-3">
                         {getSentimentIcon(article.sentiment)}
                         <span className={`px-3 py-1 rounded-full text-xs font-semibold ${getSentimentBadge(article.sentiment)}`}>
-                          {article.sentiment?.toUpperCase() || 'N/A'}
+                          {article.sentiment.toUpperCase()}
                         </span>
                       </div>
                       <span className="text-xs text-gray-500">
