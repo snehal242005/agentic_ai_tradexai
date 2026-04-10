@@ -78,7 +78,7 @@ const AIAssistant = () => {
   const quickActions = [
     'Analyze AAPL stock',
     'Predict TSLA price for next week',
-    'Create a portfolio with $100000',
+    'Create a portfolio with ₹100000',
     'Why is the market falling today?',
     'Suggest low-risk investments',
     'Compare GOOGL vs MSFT'

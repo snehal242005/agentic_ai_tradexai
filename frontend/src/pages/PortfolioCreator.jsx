@@ -61,7 +61,7 @@ const PortfolioCreator = () => {
           <form onSubmit={handleCreatePortfolio} className="space-y-6">
             <div className="grid md:grid-cols-2 gap-6">
               <div>
-                <label className="block text-sm font-medium mb-2">Investment Budget ($)</label>
+                <label className="block text-sm font-medium mb-2">Investment Budget (₹)</label>
                 <div className="relative">
                   <input
                     type="number"
@@ -74,7 +74,7 @@ const PortfolioCreator = () => {
                   />
                   <Wallet className="absolute left-3 top-3.5 w-5 h-5 text-gray-400" />
                 </div>
-                <p className="text-xs text-gray-500 mt-1">Minimum: $1,000</p>
+                <p className="text-xs text-gray-500 mt-1">Minimum: ₹1,000</p>
               </div>
 
               <div>
@@ -128,11 +128,11 @@ const PortfolioCreator = () => {
               <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
                 <div className="bg-dark-hover rounded-lg p-4">
                   <p className="text-xs text-gray-400 mb-1">Total Investment</p>
-                  <p className="text-2xl font-bold">${portfolio.invested_amount?.toLocaleString()}</p>
+                  <p className="text-2xl font-bold">₹{portfolio.invested_amount?.toLocaleString()}</p>
                 </div>
                 <div className="bg-dark-hover rounded-lg p-4">
                   <p className="text-xs text-gray-400 mb-1">Current Value</p>
-                  <p className="text-2xl font-bold text-accent-green">${portfolio.current_value?.toLocaleString()}</p>
+                  <p className="text-2xl font-bold text-accent-green">₹{portfolio.current_value?.toLocaleString()}</p>
                 </div>
                 <div className="bg-dark-hover rounded-lg p-4">
                   <p className="text-xs text-gray-400 mb-1">No. of Stocks</p>
@@ -163,7 +163,7 @@ const PortfolioCreator = () => {
                     </Pie>
                     <Tooltip
                       contentStyle={{ backgroundColor: '#131827', border: '1px solid #1e2537', borderRadius: '8px' }}
-                      formatter={(value, _name, props) => [`${value}% — $${props.payload.amount?.toLocaleString()}`, props.payload.name]}
+                      formatter={(value, _name, props) => [`${value}% — ₹${props.payload.amount?.toLocaleString()}`, props.payload.name]}
                     />
                   </RechartsPie>
                 </ResponsiveContainer>
@@ -185,11 +185,11 @@ const PortfolioCreator = () => {
                       <div className="grid grid-cols-2 gap-2 text-sm">
                         <div>
                           <p className="text-gray-400 text-xs">Investment</p>
-                          <p className="font-semibold">${stock.amount?.toLocaleString()}</p>
+                          <p className="font-semibold">₹{stock.amount?.toLocaleString()}</p>
                         </div>
                         <div>
                           <p className="text-gray-400 text-xs">Current Value</p>
-                          <p className="font-semibold">${stock.current_value?.toLocaleString()}</p>
+                          <p className="font-semibold">₹{stock.current_value?.toLocaleString()}</p>
                         </div>
                       </div>
                     </div>

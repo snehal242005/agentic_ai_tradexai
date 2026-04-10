@@ -69,10 +69,10 @@ const PortfolioPanel = () => {
           
           <div className="text-right">
             <p className="text-sm text-gray-400">Total Value</p>
-            <p className="text-2xl font-bold">${portfolio.current_value.toLocaleString()}</p>
+            <p className="text-2xl font-bold">₹{portfolio.current_value.toLocaleString()}</p>
             <p className={`text-sm font-semibold ${isProfit ? 'text-accent-green' : 'text-accent-red'}`}>
               {isProfit ? '+' : ''}{portfolio.total_profit_loss_percent.toFixed(2)}% 
-              ({isProfit ? '+' : ''}${portfolio.total_profit_loss.toLocaleString()})
+              ({isProfit ? '+' : ''}₹{portfolio.total_profit_loss.toLocaleString()})
             </p>
           </div>
         </div>
@@ -106,7 +106,7 @@ const PortfolioPanel = () => {
                     borderRadius: '8px'
                   }}
                   formatter={(value, name, props) => [
-                    `${value.toFixed(1)}% ($${props.payload.amount.toLocaleString()})`,
+                    `${value.toFixed(1)}% (₹${props.payload.amount.toLocaleString()})`,
                     props.payload.name
                   ]}
                 />
@@ -181,8 +181,8 @@ const PortfolioPanel = () => {
                       </div>
                     </td>
                     <td className="text-right py-3 px-4">{holding.allocation_percent.toFixed(1)}%</td>
-                    <td className="text-right py-3 px-4">${holding.amount.toLocaleString()}</td>
-                    <td className="text-right py-3 px-4">${holding.current_value.toLocaleString()}</td>
+                    <td className="text-right py-3 px-4">₹{holding.amount.toLocaleString()}</td>
+                    <td className="text-right py-3 px-4">₹{holding.current_value.toLocaleString()}</td>
                     <td className={`text-right py-3 px-4 font-semibold ${
                       holding.profit_loss >= 0 ? 'text-accent-green' : 'text-accent-red'
                     }`}>
@@ -199,11 +199,11 @@ const PortfolioPanel = () => {
         <div className="grid grid-cols-3 gap-4 mt-6">
           <div className="bg-dark-hover rounded-lg p-4">
             <p className="text-xs text-gray-400 mb-1">Invested Amount</p>
-            <p className="text-lg font-semibold">${portfolio.invested_amount.toLocaleString()}</p>
+            <p className="text-lg font-semibold">₹{portfolio.invested_amount.toLocaleString()}</p>
           </div>
           <div className="bg-dark-hover rounded-lg p-4">
             <p className="text-xs text-gray-400 mb-1">Current Value</p>
-            <p className="text-lg font-semibold">${portfolio.current_value.toLocaleString()}</p>
+            <p className="text-lg font-semibold">₹{portfolio.current_value.toLocaleString()}</p>
           </div>
           <div className="bg-dark-hover rounded-lg p-4">
             <p className="text-xs text-gray-400 mb-1">Risk Level</p>
