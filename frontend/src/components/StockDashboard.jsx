@@ -56,7 +56,7 @@ const StockDashboard = ({ selectedStock }) => {
           <div>
             <h2 className="text-2xl font-bold">{stockData.symbol}</h2>
             <div className="flex items-baseline space-x-3 mt-2">
-              <span className="text-3xl font-bold">₹{stockData.current_price}</span>
+              <span className="text-3xl font-bold">${stockData.current_price}</span>
               <span className={`flex items-center text-lg font-semibold ${isPositive ? 'text-accent-green' : 'text-accent-red'}`}>
                 {isPositive ? <TrendingUp className="w-5 h-5 mr-1" /> : <TrendingDown className="w-5 h-5 mr-1" />}
                 {isPositive ? '+' : ''}{stockData.change} ({isPositive ? '+' : ''}{stockData.change_percent}%)
@@ -89,8 +89,8 @@ const StockDashboard = ({ selectedStock }) => {
         {/* Stats Grid */}
         <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mt-6">
           <StatCard label="Volume" value={stockData.volume?.toLocaleString()} />
-          <StatCard label="52W High" value={`₹${stockData.high_52w}`} />
-          <StatCard label="52W Low" value={`₹${stockData.low_52w}`} />
+          <StatCard label="52W High" value={`$${stockData.high_52w}`} />
+          <StatCard label="52W Low" value={`$${stockData.low_52w}`} />
           <StatCard label="P/E Ratio" value={stockData.pe_ratio?.toFixed(2) || 'N/A'} />
         </div>
       </div>
@@ -142,11 +142,11 @@ const StockDashboard = ({ selectedStock }) => {
           <div className="grid grid-cols-2 gap-4">
             <div>
               <p className="text-xs text-gray-400">SMA 20</p>
-              <p className="text-lg font-semibold">₹{stockData.sma_20}</p>
+              <p className="text-lg font-semibold">${stockData.sma_20}</p>
             </div>
             <div>
               <p className="text-xs text-gray-400">SMA 50</p>
-              <p className="text-lg font-semibold">₹{stockData.sma_50}</p>
+              <p className="text-lg font-semibold">${stockData.sma_50}</p>
             </div>
             <div>
               <p className="text-xs text-gray-400">Trend</p>

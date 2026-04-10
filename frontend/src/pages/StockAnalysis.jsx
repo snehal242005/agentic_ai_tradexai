@@ -104,7 +104,7 @@ const StockAnalysis = () => {
                 <div>
                   <h2 className="text-3xl font-bold">{stockData.symbol}</h2>
                   <div className="flex items-baseline space-x-3 mt-2">
-                    <span className="text-4xl font-bold">₹{stockData.current_price}</span>
+                    <span className="text-4xl font-bold">${stockData.current_price}</span>
                     <span className={`flex items-center text-xl font-semibold ${isPositive ? 'text-accent-green' : 'text-accent-red'}`}>
                       {isPositive ? <TrendingUp className="w-5 h-5 mr-1" /> : <TrendingDown className="w-5 h-5 mr-1" />}
                       {isPositive ? '+' : ''}{stockData.change} ({isPositive ? '+' : ''}{stockData.change_percent}%)
@@ -127,11 +127,11 @@ const StockAnalysis = () => {
                 </div>
                 <div className="bg-dark-hover rounded-lg p-4">
                   <p className="text-xs text-gray-400 mb-1">52W High</p>
-                  <p className="text-lg font-semibold">₹{stockData.high_52w}</p>
+                  <p className="text-lg font-semibold">${stockData.high_52w}</p>
                 </div>
                 <div className="bg-dark-hover rounded-lg p-4">
                   <p className="text-xs text-gray-400 mb-1">52W Low</p>
-                  <p className="text-lg font-semibold">₹{stockData.low_52w}</p>
+                  <p className="text-lg font-semibold">${stockData.low_52w}</p>
                 </div>
                 <div className="bg-dark-hover rounded-lg p-4">
                   <p className="text-xs text-gray-400 mb-1">P/E Ratio</p>
@@ -185,12 +185,12 @@ const StockAnalysis = () => {
               <div className="grid md:grid-cols-3 gap-4">
                 <div className="bg-dark-hover rounded-lg p-4">
                   <p className="text-sm text-gray-400 mb-2">SMA 20</p>
-                  <p className="text-2xl font-bold">₹{stockData.sma_20}</p>
+                  <p className="text-2xl font-bold">${stockData.sma_20}</p>
                   <p className="text-xs text-gray-500 mt-1">20-day moving average</p>
                 </div>
                 <div className="bg-dark-hover rounded-lg p-4">
                   <p className="text-sm text-gray-400 mb-2">SMA 50</p>
-                  <p className="text-2xl font-bold">₹{stockData.sma_50}</p>
+                  <p className="text-2xl font-bold">${stockData.sma_50}</p>
                   <p className="text-xs text-gray-500 mt-1">50-day moving average</p>
                 </div>
                 <div className="bg-dark-hover rounded-lg p-4">

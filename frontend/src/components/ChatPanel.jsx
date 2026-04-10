@@ -115,7 +115,7 @@ const ChatPanel = ({ onStockSelect }) => {
                               {rec.action}
                             </span>
                           </div>
-                          <p className="text-xs text-gray-400">₹{rec.current_price}</p>
+                          <p className="text-xs text-gray-400">${rec.current_price}</p>
                         </div>
                       ))}
                     </div>
@@ -161,7 +161,7 @@ const ChatPanel = ({ onStockSelect }) => {
           </button>
         </div>
         <div className="mt-2 flex flex-wrap gap-2">
-          {['Which stocks should I buy?', 'Predict AAPL price', 'Create portfolio ₹50000'].map((suggestion, i) => (
+          {['Which stocks should I buy?', 'Predict AAPL price', 'Create portfolio $50000'].map((suggestion, i) => (
             <button
               key={i}
               onClick={() => setInput(suggestion)}
