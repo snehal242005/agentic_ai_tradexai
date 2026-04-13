@@ -1,13 +1,12 @@
 import React from 'react'
 import { Link, useLocation } from 'react-router-dom'
-import { TrendingUp, Activity, BarChart3, TrendingDown, Newspaper, Wallet, LayoutDashboard, Sparkles } from 'lucide-react'
+import { TrendingUp, Activity, BarChart3, TrendingDown, Newspaper, Wallet, Sparkles } from 'lucide-react'
 
 const Header = ({ marketData }) => {
   const location = useLocation()
 
   const navItems = [
-    { path: '/', label: 'Dashboard', icon: LayoutDashboard },
-    { path: '/ai-assistant', label: 'AI Assistant', icon: Sparkles },
+    { path: '/', label: 'AI Assistant', icon: Sparkles },
     { path: '/stock-analysis', label: 'Stock Analysis', icon: BarChart3 },
     { path: '/price-prediction', label: 'Predictions', icon: TrendingDown },
     { path: '/news-sentiment', label: 'News', icon: Newspaper },

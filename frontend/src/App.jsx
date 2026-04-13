@@ -1,6 +1,7 @@
 import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom'
 import { Toaster } from 'react-hot-toast'
 import { useState, useEffect } from 'react'
+import LandingPage from './components/LandingPage'
 import Header from './components/Header'
 import AIAssistant from './pages/AIAssistant'
 import StockAnalysis from './pages/StockAnalysis'
@@ -10,14 +11,16 @@ import PortfolioCreator from './pages/PortfolioCreator'
 import { api } from './services/api'
 
 function App() {
+  const [isLoggedIn, setIsLoggedIn] = useState(false)
   const [marketData, setMarketData] = useState(null)
 
   useEffect(() => {
-    loadMarketData()
-    // Refresh market data every 60 seconds
-    const interval = setInterval(loadMarketData, 60000)
-    return () => clearInterval(interval)
-  }, [])
+    if (isLoggedIn) {
+      loadMarketData()
+      const interval = setInterval(loadMarketData, 60000)
+      return () => clearInterval(interval)
+    }
+  }, [isLoggedIn])
 
   const loadMarketData = async () => {
     try {
@@ -26,6 +29,11 @@ function App() {
     } catch (error) {
       console.error('Failed to load market data:', error)
     }
+  }
+
+  // Show landing page until user clicks Get Started
+  if (!isLoggedIn) {
+    return <LandingPage onLogin={() => setIsLoggedIn(true)} />
   }
 
   return (
@@ -45,9 +53,8 @@ function App() {
         <Header marketData={marketData} />
 
         <Routes>
-          {/* AI Assistant is the main page */}
+          {/* AI Assistant is the main page after login */}
           <Route path="/" element={<AIAssistant />} />
-          <Route path="/ai-assistant" element={<Navigate to="/" replace />} />
 
           {/* Feature Pages */}
           <Route path="/stock-analysis" element={<StockAnalysis />} />
