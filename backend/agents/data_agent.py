@@ -28,9 +28,9 @@ class DataAgent:
             # Get current info
             info = stock.info
             
-            # Calculate metrics
+            # Calculate metrics — use previous day close for accurate daily change
             current_price = hist['Close'].iloc[-1] if len(hist) > 0 else 0
-            prev_price = hist['Close'].iloc[0] if len(hist) > 0 else current_price
+            prev_price = hist['Close'].iloc[-2] if len(hist) > 1 else current_price
             change = current_price - prev_price
             change_percent = (change / prev_price * 100) if prev_price > 0 else 0
             
