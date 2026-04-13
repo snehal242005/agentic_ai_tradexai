@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import { useState } from 'react'
 import { Target, Loader, TrendingUp, TrendingDown } from 'lucide-react'
 import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer } from 'recharts'
 import { api } from '../services/api'
@@ -110,12 +110,12 @@ const PricePrediction = () => {
               <div className="grid grid-cols-2 gap-4">
                 <div className="bg-dark-hover rounded-lg p-4">
                   <p className="text-xs text-gray-400 mb-1">Current Price</p>
-                  <p className="text-2xl font-bold">₹{prediction.current_price}</p>
+                  <p className="text-2xl font-bold">${prediction.current_price}</p>
                 </div>
                 <div className="bg-dark-hover rounded-lg p-4">
                   <p className="text-xs text-gray-400 mb-1">7-Day Target</p>
                   <p className="text-2xl font-bold text-accent-purple">
-                    ₹{prediction.predictions[prediction.predictions.length - 1]?.predicted_price}
+                    ${prediction.predictions[prediction.predictions.length - 1]?.predicted_price}
                   </p>
                 </div>
               </div>
@@ -187,7 +187,7 @@ const PricePrediction = () => {
                       return (
                         <tr key={index} className="border-b border-dark-border hover:bg-dark-hover transition-colors">
                           <td className="py-3 px-4">{pred.date}</td>
-                          <td className="text-right py-3 px-4 font-semibold">₹{pred.predicted_price}</td>
+                          <td className="text-right py-3 px-4 font-semibold">${pred.predicted_price}</td>
                           <td className="text-right py-3 px-4">{(pred.confidence * 100).toFixed(0)}%</td>
                           <td className={`text-right py-3 px-4 font-semibold ${isPositive ? 'text-accent-green' : 'text-accent-red'}`}>
                             {isPositive ? '+' : ''}{change}%

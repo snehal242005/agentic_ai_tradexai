@@ -1,25 +1,40 @@
 import React, { useState, useEffect } from 'react'
 import { LineChart, Line, AreaChart, Area, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer } from 'recharts'
-import { TrendingUp, TrendingDown, Activity, DollarSign } from 'lucide-react'
+import { TrendingUp, TrendingDown, Search } from 'lucide-react'
 import { api } from '../services/api'
 import { motion } from 'framer-motion'
 
-const StockDashboard = ({ selectedStock }) => {
+const POPULAR_STOCKS = ['AAPL', 'GOOGL', 'MSFT', 'TSLA', 'AMZN', 'NVDA', 'META', 'NFLX']
+
+const StockDashboard = ({ selectedStock: initialStock }) => {
+  const [activeStock, setActiveStock] = useState(initialStock || 'AAPL')
+  const [searchInput, setSearchInput] = useState('')
   const [stockData, setStockData] = useState(null)
   const [loading, setLoading] = useState(true)
   const [period, setPeriod] = useState('1mo')
   const [lastUpdated, setLastUpdated] = useState(null)
 
   useEffect(() => {
+    setActiveStock(initialStock || 'AAPL')
+  }, [initialStock])
+
+  useEffect(() => {
     loadStockData()
-    // Auto-refresh every 30 seconds
     const interval = setInterval(loadStockData, 30000)
     return () => clearInterval(interval)
-  }, [selectedStock, period])
+  }, [activeStock, period])
+
+  const handleSearch = (e) => {
+    e.preventDefault()
+    if (searchInput.trim()) {
+      setActiveStock(searchInput.trim().toUpperCase())
+      setSearchInput('')
+    }
+  }
 
   const loadStockData = async () => {
     try {
-      const data = await api.getStockData(selectedStock, period)
+      const data = await api.getStockData(activeStock, period)
       setStockData(data)
       setLastUpdated(new Date())
     } catch (error) {
@@ -50,13 +65,44 @@ const StockDashboard = ({ selectedStock }) => {
       animate={{ opacity: 1, y: 0 }}
       className="bg-dark-card rounded-xl border border-dark-border overflow-hidden"
     >
+      {/* Stock Search + Quick Picks */}
+      <div className="p-4 border-b border-dark-border">
+        <div className="flex flex-wrap items-center gap-3">
+          <form onSubmit={handleSearch} className="flex items-center bg-dark-hover border border-dark-border rounded-lg overflow-hidden">
+            <input
+              type="text"
+              value={searchInput}
+              onChange={(e) => setSearchInput(e.target.value.toUpperCase())}
+              placeholder="Search symbol..."
+              className="bg-transparent px-3 py-2 text-sm w-36 focus:outline-none"
+            />
+            <button type="submit" className="px-3 py-2 hover:bg-dark-border transition-colors">
+              <Search className="w-4 h-4 text-gray-400" />
+            </button>
+          </form>
+          <div className="flex flex-wrap gap-2">
+            {POPULAR_STOCKS.map(s => (
+              <button
+                key={s}
+                onClick={() => setActiveStock(s)}
+                className={`px-3 py-1 rounded text-xs font-semibold transition-colors ${
+                  activeStock === s ? 'bg-accent-blue text-white' : 'bg-dark-hover hover:bg-dark-border text-gray-300'
+                }`}
+              >
+                {s}
+              </button>
+            ))}
+          </div>
+        </div>
+      </div>
+
       {/* Header */}
       <div className="p-6 border-b border-dark-border">
         <div className="flex items-start justify-between">
           <div>
             <h2 className="text-2xl font-bold">{stockData.symbol}</h2>
             <div className="flex items-baseline space-x-3 mt-2">
-              <span className="text-3xl font-bold">₹{stockData.current_price}</span>
+              <span className="text-3xl font-bold">${stockData.current_price}</span>
               <span className={`flex items-center text-lg font-semibold ${isPositive ? 'text-accent-green' : 'text-accent-red'}`}>
                 {isPositive ? <TrendingUp className="w-5 h-5 mr-1" /> : <TrendingDown className="w-5 h-5 mr-1" />}
                 {isPositive ? '+' : ''}{stockData.change} ({isPositive ? '+' : ''}{stockData.change_percent}%)
@@ -89,8 +135,8 @@ const StockDashboard = ({ selectedStock }) => {
         {/* Stats Grid */}
         <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mt-6">
           <StatCard label="Volume" value={stockData.volume?.toLocaleString()} />
-          <StatCard label="52W High" value={`₹${stockData.high_52w}`} />
-          <StatCard label="52W Low" value={`₹${stockData.low_52w}`} />
+          <StatCard label="52W High" value={`$${stockData.high_52w}`} />
+          <StatCard label="52W Low" value={`$${stockData.low_52w}`} />
           <StatCard label="P/E Ratio" value={stockData.pe_ratio?.toFixed(2) || 'N/A'} />
         </div>
       </div>
@@ -142,11 +188,11 @@ const StockDashboard = ({ selectedStock }) => {
           <div className="grid grid-cols-2 gap-4">
             <div>
               <p className="text-xs text-gray-400">SMA 20</p>
-              <p className="text-lg font-semibold">₹{stockData.sma_20}</p>
+              <p className="text-lg font-semibold">${stockData.sma_20}</p>
             </div>
             <div>
               <p className="text-xs text-gray-400">SMA 50</p>
-              <p className="text-lg font-semibold">₹{stockData.sma_50}</p>
+              <p className="text-lg font-semibold">${stockData.sma_50}</p>
             </div>
             <div>
               <p className="text-xs text-gray-400">Trend</p>

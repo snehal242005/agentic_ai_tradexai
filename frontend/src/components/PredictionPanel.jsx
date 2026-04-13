@@ -1,6 +1,6 @@
-import React, { useState, useEffect } from 'react'
+import { useState, useEffect } from 'react'
 import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer } from 'recharts'
-import { TrendingUp, Activity, Target } from 'lucide-react'
+import { TrendingUp, Target } from 'lucide-react'
 import { api } from '../services/api'
 import { motion } from 'framer-motion'
 
@@ -126,12 +126,12 @@ const PredictionPanel = ({ selectedStock }) => {
         <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mt-6">
           <div className="bg-dark-hover rounded-lg p-3">
             <p className="text-xs text-gray-400 mb-1">Current Price</p>
-            <p className="text-lg font-semibold">₹{prediction.current_price}</p>
+            <p className="text-lg font-semibold">${prediction.current_price}</p>
           </div>
           <div className="bg-dark-hover rounded-lg p-3">
             <p className="text-xs text-gray-400 mb-1">7-Day Target</p>
             <p className="text-lg font-semibold text-accent-purple">
-              ₹{prediction.predictions[prediction.predictions.length - 1]?.predicted_price}
+              ${prediction.predictions[prediction.predictions.length - 1]?.predicted_price}
             </p>
           </div>
           <div className="bg-dark-hover rounded-lg p-3">
